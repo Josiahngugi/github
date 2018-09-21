@@ -1,20 +1,29 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div class="container">
+  <div class="row justify-content-center my-4">
+    <div class="col-md-4">
+      <form class="" action="index.html" method="post">
+        <div class="form-group">
+          <input type="text" name="name" value=""#search class="form-control">
+        </div>
+        <div class="">
+          <button type="button" name="button"(click)='searchfunc(search)'>Search</button>
+        </div>
+      </form>
+    </div>
+  </div>
+    <div class="row justify-content-center">
+      <div class="col-md-6 my-5">
+        <h4>Name:<span class="text-danger">{{users.name}}</span></h4><br>
+        <h5>Company:<span class="text-danger">{{users.company}}</span></h5><br>
+        <h5>Blog:<span class="text-danger">{{users.blog}}</span></h5><br>
+        <h5>Location:<span class="text-danger">{{users.location}}</span></h5><br>
+        <h5>Bio:<span class="text-danger">{{users.bio}}</span></h5><br>
+        <h5>Created on:<span class="text-danger">{{users.created_at}}</span></h5>
+      </div>
 
+      <div class="col-md-6">
+        <p><img src="{{users.avatar_url}} "></p>
+      </div>
+    </div>
+</div>
