@@ -1,29 +1,63 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="container">
-  <div class="row justify-content-center my-4">
-    <div class="col-md-4">
-      <form class="" action="index.html" method="post">
+  <div class="row my-4 justify-content-center">
+    <div class="col-md-6">
+      <form>
         <div class="form-group">
-          <input type="text" name="name" value=""#search class="form-control">
+          <input type="text" class="form-control" placeholder="type your username here" [(ngModel)]="search" name="search" (keyup)="searchfnc()">
         </div>
-        <div class="">
-          <button type="button" name="button"(click)='searchfunc(search)'>Search</button>
-        </div>
+        <!-- <div class="form-group">
+          <button type="button" type="Submit" (click)='searchfunc(search)' class="btn btn-success">Search</button>
+        </div> -->
       </form>
     </div>
   </div>
     <div class="row justify-content-center">
-      <div class="col-md-6 my-5">
-        <h4>Name:<span class="text-danger">{{users.name}}</span></h4><br>
-        <h5>Company:<span class="text-danger">{{users.company}}</span></h5><br>
-        <h5>Blog:<span class="text-danger">{{users.blog}}</span></h5><br>
-        <h5>Location:<span class="text-danger">{{users.location}}</span></h5><br>
-        <h5>Bio:<span class="text-danger">{{users.bio}}</span></h5><br>
-        <h5>Created on:<span class="text-danger">{{users.created_at}}</span></h5>
+
+        <div class="col-md-3">
+          <h4 class="text-center text-success">User</h4>
+          <hr>
+          <p><img src="{{users.avatar_url}}"></p>
+          <h4>Name:<span class="text-danger">{{users.name}}</span></h4><br>
+          <h4>Username:<span class="text-danger">({{users.login}})</span></h4><br>
+          <h5>Hirearable:<span class="text-danger">{{users.hireable}}</span></h5><br>
+          <button type="button" name="button" class="btn btn-success"><a class="text-danger"href="{{users.html_url}}">View Live</a></button>
+        </div>
+
+        <div class="col-md-4">
+          <h4 class="text-center text-success">Full information</h4>
+          <hr>
+            <div class="mx-5">
+          <h5>Email:<span class="text-danger">{{users.email}}</span></h5><br>
+          <h5>Company:<span class="text-danger">{{users.company}}</span></h5><br>
+          <h5>Blog:<span class="text-danger">{{users.blog}}</span></h5><br>
+          <h5>Location:<span class="text-danger">{{users.location}}</span></h5><br>
+          <h5>Bio:<span class="text-danger">{{users.bio}}</span></h5><br>
+          <h5>Created on:<span class="text-danger">{{users.created_at|date}}</span></h5><br>
+          <h5>Followers:<span class="text-danger">{{users.followers}}</span></h5><br>
+          <h5>Following:<span class="text-danger">{{users.following}}</span></h5><br>
+        </div>
       </div>
 
-      <div class="col-md-6">
-        <p><img src="{{users.avatar_url}} "></p>
+
+      <div class="col-md-5">
+        <h4 class="text-center text-success">Respitories' information</h4>
+        <hr>
+        <p class="text-center text-info">Repositories &nbsp; <span class="badge badge-danger">{{users.public_repos}}</span>&nbsp;Gists &nbsp;<span class="badge badge-danger">{{users.public_gists}}</span></p>
+        <ul *ngFor='let repo of repos' class="mx-5">
+          <li>
+            <div class="card">
+              <div class="card-head">
+                <h5 class="text-center text-danger">{{repo.name}}</h5>
+              </div>
+              <div class="card-body">
+                <p >{{repo.description}}</p>
+                <p>To view full information of the respository</p>
+                <h4 class="btn btn-success"><a href="{{repo.html_url}}" target="_blank" class="text-danger">View</a></h4>
+              </div>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
 </div>
