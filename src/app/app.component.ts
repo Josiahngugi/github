@@ -11,13 +11,17 @@ export class AppComponent {
   title = 'github';
   users:any[];
   search: any;
+  searchre:string
   repos:any[];
 
   constructor(private servicedata:GithubserviceService){
   }
-//   searchfunc(){
-//     this.servicedata.username = this.search.value;
-// };
+
+searchrepo(searchre){
+let result=this.repos.filter(repo=>repo.name===searchre)
+ alert(result)
+}
+
 searchfnc(){
 this.servicedata.usernameset(this.search)
 this.servicedata.getdata().
