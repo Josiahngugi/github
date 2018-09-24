@@ -9,7 +9,7 @@ import { User} from './user';
 })
 export class AppComponent {
   title = 'github';
-  users:any[];
+  users:object[];
   search: any;
   searchre:string
   repos:any[];

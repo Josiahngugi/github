@@ -3,6 +3,7 @@ import { Http, Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
 import { map } from 'rxjs/operators';
 import {environment} from './../environments/environment';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,10 +17,14 @@ export class GithubserviceService {
    usernameset(search){
      this.username=search;
    }
-   // let promise=new Promise((resolve,reject)=>{
+ //   // let promise=new Promise((resolve,reject)=>{
+ //   interface json{
+ //   users:[]
+ // }
   getdata(){
     return this.http.get(environment.apiUrl+ this.username ).
     map(res=>res.json())
+
   }
   getrepo(){
     return this.http.get(environment.apiUrl+ this.username + "/repos").
