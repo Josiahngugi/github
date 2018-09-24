@@ -6,11 +6,13 @@ import { GithubserviceService} from './githubservice.service'
 import { AppComponent } from './app.component';
 import { HttpModule} from '@angular/http';
 import { FdatePipe } from './fdate.pipe';
+import { HeadDirective } from './head.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FdatePipe
+    FdatePipe,
+    HeadDirective
 
   ],
   imports: [

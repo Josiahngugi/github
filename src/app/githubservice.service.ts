@@ -2,14 +2,13 @@ import { Injectable } from '@angular/core';
 import { Http, Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
 import { map } from 'rxjs/operators';
+import {environment} from './../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GithubserviceService {
   private username: string;
-  private clientId="?access_token=30e19c35ae334db1bc7cb163a248c11864287092";
-  private clientSecret=""
   constructor(private http:Http) {
     this.username="josiahngugi";
 
@@ -17,12 +16,13 @@ export class GithubserviceService {
    usernameset(search){
      this.username=search;
    }
+   // let promise=new Promise((resolve,reject)=>{
   getdata(){
-    return this.http.get("https://api.github.com/users/"+ this.username + this.clientId).
+    return this.http.get(environment.apiUrl+ this.username ).
     map(res=>res.json())
   }
   getrepo(){
-    return this.http.get("https://api.github.com/users/"+ this.username + "/repos").
+    return this.http.get(environment.apiUrl+ this.username + "/repos").
       map(res=>res.json())
   }
 
